@@ -8,7 +8,7 @@ const sunIcon = (
     className="dark:opacity-50"
   >
     <g
-      stroke="#fff"
+      stroke="#FFF"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"

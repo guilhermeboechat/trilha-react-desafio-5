@@ -3,10 +3,10 @@ import {
   getPostBySlug,
 } from '../../utils/mdx-utils';
 
-import { MDXRemote } from 'next-mdx-remote';
+//import { MDXRemote } from 'next-mdx-remote';
 import Head from 'next/head';
-import Link from 'next/link';
-import ArrowIcon from '../../components/ArrowIcon';
+//import Link from 'next/link';
+//import ArrowIcon from '../../components/ArrowIcon';
 import CustomLink from '../../components/CustomLink';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -19,8 +19,10 @@ const components = {
   Head,
 };
 
-export default function PostPage({
+export default function 
+PostPage({
   posts,
+  
   globalData,
 }) {
   return (
@@ -35,13 +37,11 @@ export default function PostPage({
           <h1 className="text-3xl md:text-5xl dark:text-white text-center mb-12">
             {posts?.title}
           </h1>
-          {posts?.description && (
-            <p className="text-xl mb-4">{posts?.description}</p>
-          )}
+            <p className="text-xl mb-4">Meu Post Completo</p>          
         </header>
         <main>
           <article className="prose dark:prose-dark">
-            {posts.body}
+            {posts.description}
           </article>
         </main>
       </article>
@@ -60,7 +60,8 @@ export default function PostPage({
 
 export const getServerSideProps = async ({ params }) => {
   const globalData = getGlobalData();
-  const posts = await getPostBySlug(params.id);
+  const id = params.id
+  const posts = await getPostBySlug(id);
  
 
   return {
